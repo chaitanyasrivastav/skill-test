@@ -1,15 +1,33 @@
-from flask import Blueprint
+import json
+from flask import Blueprint, jsonify, request
+from database import db
+from users.models import User
 
 users = Blueprint('users', __name__)
 
 @users.route('/users')
 def list_users():
-    return {"b": 0}
+    users = User.query.all()
+    users_json = []
+    for user in users:
+        users_json.append({"id": user.id, "username": user.username, "email": user.email})
+    return jsonify(users_json)
 
 @users.route('/user/<id>')
 def user_details(id):
-    return {"b": id}
+    user = User.query.get(id)
+    users_json = {"id": user.id, "username": user.username, "email": user.email}
+    return jsonify(users_json)
 
 @users.route('/user', methods=["POST"])
 def create_user():
-    return {"b": 0}
+    try:
+        data = json.loads(request.data)
+        print(data)
+        user1 = User(id=data["id"], username=data["username"], email=data["email"])
+        db.session.add(user1)
+        db.session.commit()
+        return jsonify({"success": True})
+    except Exception as e:
+        print(e)
+        return jsonify({"success": False})
