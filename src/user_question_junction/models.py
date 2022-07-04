@@ -2,6 +2,7 @@ from datetime import datetime
 from database import db
 
 class UserQuestion(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.ForeignKey('user.id'), nullable=False)
     question_id = db.Column(db.ForeignKey('question.id'), nullable=False)
     score = db.Column(db.Integer, nullable=False)
