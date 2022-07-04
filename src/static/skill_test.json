@@ -210,14 +210,14 @@
           "responses": {}
         }
       },
-      "/user/{uid}/questions": {
+      "/user/{uid}/question/{qid}/scores": {
         "get": {
           "tags": [
             "user_question"
           ],
           "summary": "fetch a question",
           "description": "",
-          "operationId": "get_user_question",
+          "operationId": "get_user_question_scores",
           "consumes": [
             "application/json"
           ],
@@ -229,6 +229,49 @@
               "name": "uid",
               "in": "path",
               "description": "User ID",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            },
+            {
+              "name": "qid",
+              "in": "path",
+              "description": "Question ID",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/user/{uid}/question/{qid}/avgscore": {
+        "get": {
+          "tags": [
+            "user_question"
+          ],
+          "summary": "fetch a question",
+          "description": "",
+          "operationId": "get_user_question_avg_scores",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "uid",
+              "in": "path",
+              "description": "User ID",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            },
+            {
+              "name": "qid",
+              "in": "path",
+              "description": "Question ID",
               "required": true,
               "type": "integer",
               "format": "int64"

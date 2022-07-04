@@ -14,7 +14,7 @@ def create_app():
 
     swaggerui_blueprint = get_swaggerui_blueprint(SWAGGER_URL, API_URL,
         config={
-            'app_name': "Test application"
+            'app_name': "Skill Test application"
         },
     )
     app.register_blueprint(swaggerui_blueprint)
