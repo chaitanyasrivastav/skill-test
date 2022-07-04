@@ -1,0 +1,241 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Skill Test APIs"
+    },
+    "host": "localhost:5000",
+    "basePath": "",
+    "tags": [
+      {
+        "name": "user",
+        "description": "Operations about user"
+      },
+      {
+        "name": "question",
+        "description": "Operations about question"
+      },
+      {
+        "name": "user_question",
+        "description": "Operations about user questions"
+      }
+    ],
+    "schemes": [
+      "http"
+    ],
+    "paths": {
+      "/user": {
+        "post": {
+          "tags": [
+            "user"
+          ],
+          "summary": "creates an user",
+          "description": "",
+          "operationId": "create_user",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "description": "Input to create user",
+              "required": true,
+              "type": "object",
+              "format": "json"
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/user/{id}": {
+        "get": {
+          "tags": [
+            "user"
+          ],
+          "summary": "fetch a user",
+          "description": "",
+          "operationId": "get_user",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "User ID",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/users": {
+        "get": {
+          "tags": [
+            "user"
+          ],
+          "summary": "fetch all users",
+          "description": "",
+          "operationId": "list_user",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {}
+        }
+      },
+      "/question": {
+        "post": {
+          "tags": [
+            "question"
+          ],
+          "summary": "creates a question",
+          "description": "",
+          "operationId": "create_question",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "description": "Input to create question",
+              "required": true,
+              "type": "object",
+              "format": "json"
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/question/{id}": {
+        "get": {
+          "tags": [
+            "question"
+          ],
+          "summary": "fetch a question",
+          "description": "",
+          "operationId": "get_question",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "description": "Question ID",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/questions": {
+        "get": {
+          "tags": [
+            "question"
+          ],
+          "summary": "fetch all questions",
+          "description": "",
+          "operationId": "list_question",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {}
+        }
+      },
+      "/user/{uid}/question/{qid}": {
+        "post": {
+          "tags": [
+            "user_question"
+          ],
+          "summary": "User marks for solving a question",
+          "description": "",
+          "operationId": "create_user_question",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "uid",
+              "in": "path",
+              "description": "User ID",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            },
+            {
+              "name": "qid",
+              "in": "path",
+              "description": "Question ID",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "description": "Input to relate user with question",
+              "required": true,
+              "type": "object",
+              "format": "json"
+            }
+          ],
+          "responses": {}
+        }
+      },
+      "/user/{uid}/questions": {
+        "get": {
+          "tags": [
+            "user_question"
+          ],
+          "summary": "fetch a question",
+          "description": "",
+          "operationId": "get_user_question",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "uid",
+              "in": "path",
+              "description": "User ID",
+              "required": true,
+              "type": "integer",
+              "format": "int64"
+            }
+          ],
+          "responses": {}
+        }
+      }
+    }
+  }

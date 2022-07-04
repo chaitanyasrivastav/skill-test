@@ -24,8 +24,8 @@ def create_user():
     try:
         data = json.loads(request.data)
         print(data)
-        user1 = User(id=data["id"], username=data["username"], email=data["email"])
-        db.session.add(user1)
+        user = User(username=data["username"], email=data["email"])
+        db.session.add(user)
         db.session.commit()
         return jsonify({"success": True})
     except Exception as e:
